@@ -1,4 +1,5 @@
-import MyHeader from './Header';
+import MyHeader from './Header.vue';
+import Topbar from '../components/Topbar.vue';
 
 export default {
   title: 'Example/Header',

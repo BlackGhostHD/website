@@ -9,13 +9,15 @@ module.exports = {
       enableInSFC: false,
     },
   },
-  css: {
-    loaderOptions: {
-      sass: {
-        prependData: '@import "@/styles/main.scss";',
-      },
-    },
-  },
+
+  // css: {
+  //   loaderOptions: {
+  //     sass: {
+  //       additionalData: '@import "@/styles/main.scss";',
+  //     },
+  //   },
+  // },
+
   configureWebpack: {
     resolve: {
       alias: {
@@ -28,4 +30,8 @@ module.exports = {
       },
     },
   },
+
+  transpileDependencies: [
+    'vuetify',
+  ],
 };

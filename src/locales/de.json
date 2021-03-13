@@ -1,0 +1,13 @@
+{
+    "pages.settings.language" : "Sprache",
+    "pages.settings.language.english" : "Englisch",
+    "pages.settings.language.german" : "Deutsch",
+    "pages.settings.design" : "Erscheinungsbild",
+    "pages.settings.design.dark" : "Dunkel",
+    "pages.settings.design.light" : "Hell",
+    "portal.name.aboutMe" : "Über mich",
+    "portal.name.contactMe" : "Kontaktiere mich",
+    "portal.name.projects" : "Arbeit & Projekte",
+    "portal.name.terminal" : "Terminal",
+    "portal.name.settings" : "Einstellungen"
+}

@@ -1,3 +1,12 @@
-body {
-    background-color: red;
-  }
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('FantasqueSansMono-Regular'), url(~@/assets/fonts/FantasqueSansMono-Regular.woff) format('woff');
+}
+
+* {
+    margin: 0;
+    font-family: 'FantasqueSansMono-Regular';
+}

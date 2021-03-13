@@ -1,15 +1,9 @@
 <template>
-    <div>
-        Hallo
-    </div>
+  <div></div>
 </template>
 
 <script>
-export default {
 
+export default {
 };
 </script>
-
-<style lang="sass" scoped>
-
-</style>

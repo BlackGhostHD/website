@@ -24,6 +24,12 @@
                             class="icon icon-linkedin"
                         ></a>
                         <a
+                            href="https://discordapp.com/users/191154617084542976"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="icon icon-discord"
+                        ></a>
+                        <a
                             href="https://www.instagram.com/sommer.pics/"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -66,8 +72,8 @@ export default {
         width: 28px;
         height: 28px;
         border-radius: 50%;
-        border: 6px solid #273238;
-        background-color: #48D25F;
+        border: 6px solid var(--color-window-background);
+        background-color: var(--color-success);
     }
 
     img{
@@ -117,6 +123,20 @@ export default {
         &-instagram {
          background-image: url('../assets/icons/icon_instagram.svg');
         }
+
+        &-discord {
+         background-image: url('../assets/icons/icon_discord.svg');
+        }
+    }
+}
+
+[data-theme="light"] {
+    .icon {
+        filter: invert(1) opacity(0.4);
+
+        &:hover {
+            filter: invert(1) opacity(1);
+        }
     }
 }
 
@@ -124,14 +144,14 @@ export default {
     height: 35px;
     width: 80%;
     border-radius: 20px;
-    background-color: #48D25F;
+    background-color: var(--color-success);
     display: flex;
     margin: 0 auto;
     justify-content: center;
     transition: 0.4s;
 
     &:hover {
-       background-color: #3bad4e;
+       background-color: var(--color-success);
     }
 
     img{

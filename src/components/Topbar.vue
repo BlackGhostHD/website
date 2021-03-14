@@ -1,10 +1,12 @@
 <template>
     <div class="topbar">
         <div class="logo">
+          <router-link :to="'desktop'">
             <img
                 :src="require('../assets/logo.png')"
                 height="40px"
             />
+          </router-link>
         </div>
         <div class="time">
             {{data.time}}
@@ -65,5 +67,6 @@ export default {
     padding: 20px;
     font-size: 18px;
     align-self: center;
+    color: white;
   }
 </style>

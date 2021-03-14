@@ -1,6 +1,6 @@
 <template>
     <window name="Terminal" class="terminalWrapper" @click="this.focusOnClick" ref="test">
-            <div v-for="(element, index) in this.temp" :key="index" v-html="element"></div>
+            <div v-for="(element, index) in this.temp" :key="index" v-html="element" class="nasdasd"></div>
             <div class="terminalInput">
                 <span class="terminalSym"> > </span>
                 <input
@@ -117,15 +117,15 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .terminalInput{
 
     .terminalSym {
-        color: #F2AE42;
+        color: var(--color-accent);
     }
 
     input {
-        color: white;
+        color: var(--color-text);
         width: 80%;
 
         &:focus {
@@ -136,5 +136,12 @@ export default {
 
 .terminalWrapper {
     height: 100%;
+}
+
+.command {
+  &-help {
+    width: 70px;
+    display: inline-block;
+  }
 }
 </style>

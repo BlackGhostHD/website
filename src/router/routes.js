@@ -7,7 +7,7 @@ import Projects from '@/pages/Projects.vue';
 
 const routes = [
   {
-    path: '/',
+    path: '/desktop',
     name: 'Desktop',
     component: Desktop,
   },
@@ -17,7 +17,7 @@ const routes = [
     component: Terminal,
   },
   {
-    path: '/about',
+    path: '/',
     name: 'About',
     component: About,
   },

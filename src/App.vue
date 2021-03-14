@@ -12,9 +12,6 @@ const defaulLayout = 'defaultLayout';
 export default {
   name: 'App',
   components: {},
-  data() {
-    return {};
-  },
   computed: {
     layout() {
       return this.$route.meta.layout || defaulLayout;
@@ -32,6 +29,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import url('./styles/colors.scss');
+
 @font-face {
     font-family: 'FantasqueSansMono';
     font-style: normal;
@@ -44,22 +43,13 @@ html,body { height: 100%; margin: 0px; padding: 0px; overflow: hidden; }
 
 #app {
   font-family: 'FantasqueSansMono';
-  // background-image: url('~@/assets/background.jpg');
-  background-color: #3881d5;
+  background-color: var(--color-background);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   overflow: hidden;
   height: 100vh;
-  color: white;
-}
-
-:root {
-  --color-primary: #FFFFFF;
-  --color-secondary: #F2AE42;
-  --color-background: #273238;
-
-  --color-danger: #DC4545;
+  color: var(--color-text);
 }
 
 ::-webkit-scrollbar {

@@ -41,7 +41,7 @@ export default {
     onClose() {
       // eslint-disable-next-line no-unused-expressions
       // window.history.length > 2 ? this.$router.go(-1) : this.$router.push('/');
-      this.$router.push('/');
+      this.$router.push('/desktop');
     },
   },
   eventBus: {
@@ -54,11 +54,11 @@ export default {
 
 <style lang="scss" scoped>
 
-    .resizable-content {
-        height: 100%;
-        width: 100%;
-        background-color: aqua;
-    }
+.resizable-content {
+    height: 100%;
+    width: 100%;
+    background-color: aqua;
+}
 
 .circle{
     position: absolute;
@@ -84,7 +84,7 @@ export default {
 .windowHeader {
     padding: 5px;
     height: 25px;
-    background-color: #273238;
+    background-color: var(--color-window-background);
     cursor: move;
     border-bottom: 1px solid #7070703b;
 }

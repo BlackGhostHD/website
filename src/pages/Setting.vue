@@ -2,20 +2,32 @@
         <window :name="$t('portal.name.settings')" :width="400" :height="280">
             <div class="contentWrapper">
             <div class="desgin-container">
-                <h3 class="header">{{ $t('pages.settings.design') }}:</h3>
+                <h3 class="header">{{ $t('pages.settings.design') }}: <labels text="BETA" /></h3>
                 <form>
                     <label class="container">
                         <div class="container-name">
                             {{ $t('pages.settings.design.dark') }}
                         </div>
-                        <input type="radio" checked="checked" name="radio">
+                        <input
+                            type="radio"
+                            :checked="theme === 'dark'"
+                            name="radio"
+                            value="dark"
+                            v-on:change="themeSwitch"
+                        >
                         <span class="checkmark checkmark-dark"></span>
                     </label>
                     <label class="container">
                         <div class="container-name">
                             {{ $t('pages.settings.design.light') }}
                         </div>
-                        <input type="radio" name="radio">
+                        <input
+                            type="radio"
+                            :checked="theme === 'light'"
+                            name="radio"
+                            value="light"
+                            v-on:change="themeSwitch"
+                        >
                         <span class="checkmark checkmark-light"></span>
                     </label>
                 </form>
@@ -27,16 +39,26 @@
                         <div class="container-name">
                             {{ $t("pages.settings.language.german") }}
                         </div>
-                        <input type="radio" :checked="$i18n.locale == 'de'" name="radio" value="de"
-                        v-on:change="languageSwitch">
+                        <input
+                            type="radio"
+                            :checked="$i18n.locale == 'de'"
+                            name="radio"
+                            value="de"
+                            v-on:change="languageSwitch"
+                        >
                         <span class="checkmark checkmark-de"></span>
                     </label>
                     <label class="container">
                         <div class="container-name">
                             {{ $t("pages.settings.language.english") }}
                         </div>
-                        <input type="radio" :checked="$i18n.locale == 'en'" name="radio" value="en"
-                        v-on:change="languageSwitch">
+                        <input
+                            type="radio"
+                            :checked="$i18n.locale == 'en'"
+                            name="radio"
+                            value="en"
+                            v-on:change="languageSwitch"
+                        >
                         <span class="checkmark checkmark-en"></span>
                     </label>
                 </form>
@@ -46,13 +68,26 @@
 </template>
 
 <script>
-import Window from '../components/Window.vue';
+import Window from '@/components/Window.vue';
+import Labels from '@/components/Labels.vue';
 
 export default {
-  components: { Window },
+  components: { Window, Labels },
+  data() {
+    return {
+      theme: '',
+    };
+  },
+  mounted() {
+    this.theme = document.documentElement.getAttribute('data-theme');
+  },
   methods: {
     languageSwitch(elem) {
       this.$i18n.locale = elem?.target?.value || '';
+      document.documentElement.setAttribute('lang', elem?.target?.value || '');
+    },
+    themeSwitch(elem) {
+      document.documentElement.setAttribute('data-theme', elem?.target?.value);
     },
   },
 };
@@ -119,13 +154,13 @@ form {
         }
 
         &-light {
-            background-color: rgb(243, 243, 243);
+            background-color: rgb(221, 221, 221);
         }
 
         &:after {
             content: "";
             position: absolute;
-            border: 2px solid #F2AE42;
+            border: 2px solid var(--color-accent);
             display: none;
             top: -4px;
             right: -4px;
@@ -137,9 +172,5 @@ form {
 }
         .container input:checked ~ .checkmark:after {
             display: block;
-        }
-
-        .container input:checked ~ .container-name {
-            color: red;
         }
 </style>

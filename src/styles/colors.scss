@@ -1,0 +1,22 @@
+:root {
+    --color-background: #3881d5;
+  
+    --color-text: #ffffff;
+    --color-text-muted: #7B7B7B;
+    --color-accent: #F2AE42;
+  
+    --color-window-background: #273238;
+
+    --color-danger: #DC4545;
+    --color-success: #48D25F;
+}
+
+[data-theme="light"] {
+    --color-background: #3881d5;
+  
+    --color-text: #000000;
+    --color-text-muted: #7B7B7B;
+    --color-accent: #ff9d00;
+  
+    --color-window-background: #f5f5f5;
+}

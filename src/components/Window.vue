@@ -71,7 +71,9 @@ export default {
 <style lang="scss" scoped>
 .window{
     position: absolute;
-    background-color: #273238;
+    background-color: var(--color-window-background);
+    border-radius: 8px;
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5));
 
     .content {
         padding: 15px;

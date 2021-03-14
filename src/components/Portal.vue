@@ -43,7 +43,7 @@ export default {
     margin-bottom: 20px;
 
     &:hover {
-        color: #F2AE42;
+        color: var(--color-accent);
     }
 
     -webkit-user-select: none; /* Safari */
@@ -54,7 +54,7 @@ export default {
 
 a {
     text-decoration: none;
-    color: white;
+    color: #ffffff;
 }
 
 .text {

@@ -39,7 +39,7 @@ export default {
   display: flex;
   flex-flow: row;
   padding-bottom: 20px;
-  border-bottom: 1px solid #7070703b;
+  border-bottom: 1px solid var(--color-window-separator);
 
   &-profil {
     width: 200px;
@@ -82,9 +82,10 @@ export default {
     color: var(--color-text);
     border: 1px solid var(--color-success);
     border-radius: 0 50px 50px 0;
-    transition: all 0.4s ease-out;
+    transition: all 0.4s;
 
     &:hover {
+      color: #ffffff;
       background-color: var(--color-success);
     }
 

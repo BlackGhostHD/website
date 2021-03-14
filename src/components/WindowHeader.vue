@@ -53,16 +53,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-.resizable-content {
-    height: 100%;
-    width: 100%;
-    background-color: aqua;
-}
-
 .circle{
     position: absolute;
-    background: #DC4545;
+    background: var(--color-danger);
     border-radius: 50%;
     margin-top: 2px;
     width: 10px;
@@ -71,7 +64,7 @@ export default {
 }
 
 .name {
-    color: #7B7B7B;
+    color: var(--color-text-muted);
     text-align: center;
 }
 
@@ -86,6 +79,6 @@ export default {
     height: 25px;
     background-color: var(--color-window-background);
     cursor: move;
-    border-bottom: 1px solid #7070703b;
+    border-bottom: 1px solid var(--color-window-separator);
 }
 </style>

@@ -25,7 +25,7 @@ export default {
   font-size: 10px;
   font-weight: bold;
   letter-spacing: .06rem;
-  color: white;
+  color: #ffffff;
   background-color: var(--color-accent);
   border-radius: 5px;
 }

@@ -52,6 +52,10 @@ export default {
     margin-right: 58px;
     font-size: 18px;
     font-weight: lighter;
+
+    img {
+      filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.472));
+    }
   }
 
   &-name {

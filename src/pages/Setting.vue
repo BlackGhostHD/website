@@ -139,6 +139,7 @@ form {
         height: 35px;
         width: 35px;
         border-radius: 50%;
+        box-shadow: 6px 6px 10px hsla(300,15%,25%,0.3) inset;
 
         &-de {
             background-image: url(~@/assets/icons/icon_de.svg);
@@ -151,6 +152,7 @@ form {
 
         &-dark {
             background-color: rgb(33, 33, 34);
+            box-shadow: 4px 4px 8px rgba(163, 163, 163, 0.294) inset;
         }
 
         &-light {

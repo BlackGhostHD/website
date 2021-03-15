@@ -57,10 +57,15 @@ export default {
     position: absolute;
     background: var(--color-danger);
     border-radius: 50%;
-    margin-top: 2px;
-    width: 10px;
-    height: 10px;
+    margin-top: 0.6px;
+    width: 13px;
+    height: 13px;
     cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      background-color: var(--color-danger-dark);
+    }
 }
 
 .name {

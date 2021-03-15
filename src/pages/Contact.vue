@@ -151,7 +151,7 @@ export default {
     transition: 0.4s;
 
     &:hover {
-       background-color: var(--color-success);
+       background-color: var(--color-success-dark);
     }
 
     img{

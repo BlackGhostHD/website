@@ -31,6 +31,7 @@ export default {
 </script>
 
 <style lang="scss">
+
 .aboutWrapper {
   padding: 0 50px;
 }
@@ -113,6 +114,25 @@ export default {
     .text {
       margin: auto 0;
     }
+  }
+}
+
+@media (max-width: 540px) {
+  .aboutHeader {
+    flex-flow: column-reverse;
+
+    &-profil {
+      margin: auto;
+    }
+
+    .side {
+      margin-right: 0;
+      text-align: center;
+    }
+  }
+
+  .aboutWrapper {
+    padding: 0 25px;
   }
 }
 </style>

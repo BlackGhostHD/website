@@ -4,6 +4,8 @@ import About from '@/pages/About.vue';
 import Contact from '@/pages/Contact.vue';
 import Setting from '@/pages/Setting.vue';
 import Projects from '@/pages/Projects.vue';
+import AsteroidsGame from '@/pages/Games/Asteroids.vue';
+import AsteroidsProject from '@/pages/Projects/Asteroids.vue';
 
 const routes = [
   {
@@ -36,6 +38,17 @@ const routes = [
     name: 'Setting',
     component: Setting,
   },
+  {
+    path: '/games/asteroids',
+    name: 'Asteroids',
+    component: AsteroidsGame,
+  },
+  {
+    path: '/projects/asteroids',
+    name: 'Asteroids',
+    component: AsteroidsProject,
+  },
+  { path: '/games' },
 ];
 
 export default routes;

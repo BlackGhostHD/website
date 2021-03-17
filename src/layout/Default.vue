@@ -1,18 +1,30 @@
 <template>
   <div class="pageWrapper" ref="pageWrapper">
-    <topbar />
+    <topbar v-if="!visible" />
     <portalFrame />
     <img :src="require('../assets/branding.png')" class="branding">
     <slot />
+    <float-button :visible="visible" :to="'/desktop'" />
   </div>
 </template>
 
 <script>
 import Topbar from '@/components/Topbar.vue';
 import PortalFrame from '@/components/PortalFrame.vue';
+import FloatButton from '@/components/FloatButton.vue';
 
 export default {
-  components: { Topbar, PortalFrame },
+  components: { Topbar, PortalFrame, FloatButton },
+  data() {
+    return {
+      visible: false,
+    };
+  },
+  eventBus: {
+    fab(payload) {
+      this.visible = !!payload;
+    },
+  },
 };
 </script>
 
@@ -27,6 +39,7 @@ export default {
   right: 0;
   width: 220px;
   height: 200px;
+  z-index: 0;
 
     -webkit-user-select: none; /* Safari */
     -moz-user-select: none; /* Firefox */

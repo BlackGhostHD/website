@@ -18,6 +18,14 @@ module.exports = {
   //   },
   // },
 
+  pwa: {
+    name: 'Christian Sommer - Website',
+    themeColor: '#275a95',
+    msTileColor: '#000000',
+    appleMobileWebAppCapable: 'yes',
+    appleMobileWebAppStatusBarStyle: 'black',
+  },
+
   configureWebpack: {
     resolve: {
       alias: {

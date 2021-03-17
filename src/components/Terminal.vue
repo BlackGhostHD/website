@@ -1,5 +1,5 @@
 <template>
-    <window name="Terminal" class="terminalWrapper" @click="this.focusOnClick" ref="test">
+    <window name="Terminal" class="terminalWrapper" @click="this.focusOnClick">
             <div v-for="(element, index) in this.temp" :key="index" v-html="element" class="nasdasd"></div>
             <div class="terminalInput">
                 <span class="terminalSym"> > </span>

@@ -39,11 +39,10 @@ export default {
     src: url(~@/assets/fonts/FantasqueSansMono-Regular.woff) format('woff');
 }
 
-html,body { height: 100%; margin: 0px; padding: 0px; overflow: hidden; }
+html,body { height: 100%; margin: 0px; padding: 0px; overflow: hidden; background-color: var(--color-background); }
 
 #app {
   font-family: 'FantasqueSansMono';
-  background-color: var(--color-background);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

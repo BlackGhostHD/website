@@ -8,6 +8,7 @@
     "pages.aboutMe.header.intro" : "Hello, world! 👋🏻 I'm",
     "pages.aboutMe.header.msg" : "I design and code beautiful Software <br> In <span class='red'>❤</span> with clean design",
     "pages.aboutMe.button.callToAction" : "View my Work",
+    "component.callout.languageNotSupported" : "💡 Sorry, this post is not available in your selected language.",
     "portal.name.aboutMe" : "About Me",
     "portal.name.contactMe" : "Contact Me",
     "portal.name.projects" : "Work & Projects",

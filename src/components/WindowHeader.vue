@@ -36,12 +36,17 @@ export default {
       type: String,
       require: true,
     },
+    close: {
+      type: String,
+      require: false,
+    },
   },
   methods: {
     onClose() {
       // eslint-disable-next-line no-unused-expressions
       // window.history.length > 2 ? this.$router.go(-1) : this.$router.push('/');
-      this.$router.push('/desktop');
+      // eslint-disable-next-line
+      this.close ? this.$router.push(`/${this.close}`) : this.$router.push('/desktop');
     },
   },
   eventBus: {
@@ -57,9 +62,10 @@ export default {
     position: absolute;
     background: var(--color-danger);
     border-radius: 50%;
-    margin-top: 0.6px;
-    width: 13px;
-    height: 13px;
+    margin-top: 2px;
+    margin-left: 2px;
+    width: 11px;
+    height: 11px;
     cursor: pointer;
     transition: all 0.2s;
 

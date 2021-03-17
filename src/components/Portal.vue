@@ -1,6 +1,6 @@
 <template>
     <router-link :to="to" class="portal">
-        <img :src="require('../assets/icons/'+icon)" height="40px" class="icon">
+        <img :src="require('../assets/icons/'+icon)" class="icon">
         <div class="text">
             {{text}}
         </div>
@@ -34,16 +34,23 @@ export default {
 
 <style lang="scss" scoped>
 .portal {
-    width: 80px;
+    position: relative;
     display: flex;
-    justify-content: center;
     flex-flow: column;
+    width: 80px;
+    height: 70px;
+    justify-content: center;
     align-items: center;
     cursor: pointer;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 
     &:hover {
         color: var(--color-accent);
+    }
+
+    .icon {
+      width: 40px;
+      height: 120px;
     }
 
     -webkit-user-select: none; /* Safari */
@@ -58,8 +65,17 @@ a {
 }
 
 .text {
+    position: relative;
+    height: 80px;
     margin-top: 6px;
     font-size: 13px;
     text-align: center;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 540px) {
+  .text {
+    margin-bottom: 0;
+  }
 }
 </style>

@@ -1,5 +1,4 @@
 <template>
-    <div class="wrap">
         <window :name="$t('portal.name.projects')" :width=850 :height=600 close="projects">
           <project-view
             name="Asteroids"
@@ -28,7 +27,6 @@
             </p>
           </project-view>
         </window>
-    </div>
 </template>
 
 <script>

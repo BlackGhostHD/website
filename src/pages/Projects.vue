@@ -1,5 +1,4 @@
 <template>
-    <div class="wrap">
         <window :name="$t('portal.name.projects')" :width=850 :height=600>
           <card
             title="Asteroids"
@@ -8,7 +7,6 @@
             link="/projects/asteroids"
           />
         </window>
-    </div>
 </template>
 
 <script>
@@ -24,10 +22,6 @@ export default {
 </script>
 
 <style lang="scss">
-.wrap {
-  height: inherit;
-}
-
 .game {
   color: var(--color-text);
   border:none;

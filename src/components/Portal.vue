@@ -24,11 +24,6 @@ export default {
       require: true,
     },
   },
-  methods: {
-    click() {
-      console.log('click');
-    },
-  },
 };
 </script>
 

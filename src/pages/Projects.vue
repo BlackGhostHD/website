@@ -1,6 +1,6 @@
 <template>
     <div class="wrap">
-        <window :name="$t('portal.name.projects')" width="850" height="600">
+        <window :name="$t('portal.name.projects')" :width=850 :height=600>
           <card
             title="Asteroids"
             description="Multiplayer clone of the 1979 Game: Asteroids for Atari"

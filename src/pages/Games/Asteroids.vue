@@ -1,5 +1,5 @@
 <template>
-    <window name="Test" width="992" height="683" close="projects/asteroids">
+    <window name="Test" :width=992 :height=683 close="projects/asteroids">
         <iframe src="https://sommerchristian.de/games/asteroids/" width="960" height="620" class="game" scrolling="no" />
     </window>
 </template>

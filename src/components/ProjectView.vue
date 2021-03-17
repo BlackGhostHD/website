@@ -1,6 +1,9 @@
 <template>
   <div class="projectView" ref="projectView">
-    <div class="projectView-background">
+    <div
+      class="projectView-background"
+      :style="{ 'background-image': `url(${backgroundImage})` }"
+    >
     </div>
     <div class="projectView-header">
       <div :class="['projectView-back', top ? 'top' : '']">
@@ -10,46 +13,61 @@
             <img src="../assets/icons/icon_arrow.svg" width="20">
           </router-link>
           <div class="name">
-            Asteroids
+            {{ name }}
           </div>
         </div>
       <div class="projectView-name">
-        Asteroids
+        {{ name }}
       </div>
       <div class="projectView-description">
-        Multiplayer clone of the 1979 Game: Asteroids for Atari
+        {{ description }}
       </div>
-      <router-link :to="'/games/asteroids'" class="button-launch">Start</router-link>
+      <slot name="header" />
     </div>
     <div class="projectView-body">
-      <language-not-supported :supportedLanguages="['en']" />
-      <h2>How to play</h2>
-      <hr>
-      <images src="projects/asteroids/images/controls.png" src_light="projects/asteroids/images/controlsb.png" />
-      <h2>Project Details</h2>
-      <hr>
-      <p>
-        <!-- eslint-disable-next-line -->
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
-      </p>
+      <language-not-supported :supportedLanguages="supportedLanguages" />
+      <slot />
     </div>
   </div>
 </template>
 
 <script>
 import LanguageNotSupported from './Callout/LanguageNotSupported.vue';
-import Images from './Images.vue';
 
 export default {
   name: 'projectView',
-  components: { LanguageNotSupported, Images },
+  components: { LanguageNotSupported },
   data() {
     return {
       top: true,
     };
   },
+  props: {
+    name: {
+      type: String,
+      require: true,
+    },
+    description: {
+      type: String,
+      require: true,
+    },
+    assets: {
+      type: String,
+      default: 'default',
+    },
+    supportedLanguages: {
+      type: Array,
+      require: false,
+    },
+  },
   mounted() {
     document.querySelector('#content').addEventListener('scroll', this.scroll);
+  },
+  computed: {
+    backgroundImage() {
+      /* eslint-disable-next-line */
+      return require(`../assets/projects/${this.assets}/images/background.png`);
+    },
   },
   methods: {
     scroll(elem) {
@@ -144,7 +162,6 @@ export default {
 
   &-background {
     position: absolute;
-    background-image: url('../assets/projects/asteroids/images/background.png');
     background-repeat: no-repeat;
     background-position: right;
     background-size: cover;
@@ -177,6 +194,10 @@ export default {
     background-color: var(--color-window-background);
     border-radius: 10px;
     z-index: -2;
+
+    p {
+      margin-bottom: 30px;
+    }
 
     hr {
       margin-top: 5px;

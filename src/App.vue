@@ -7,11 +7,14 @@
 </template>
 
 <script>
+import Style from '@/mixins/style';
+
 const defaulLayout = 'defaultLayout';
 
 export default {
   name: 'App',
   components: {},
+  mixins: [Style],
   computed: {
     layout() {
       return this.$route.meta.layout || defaulLayout;

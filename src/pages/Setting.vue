@@ -10,7 +10,7 @@
                         </div>
                         <input
                             type="radio"
-                            :checked="theme === 'dark'"
+                            :checked="$data.theme === 'dark'"
                             name="radio"
                             value="dark"
                             v-on:change="themeSwitch"
@@ -23,7 +23,7 @@
                         </div>
                         <input
                             type="radio"
-                            :checked="theme === 'light'"
+                            :checked="$data.theme === 'light'"
                             name="radio"
                             value="light"
                             v-on:change="themeSwitch"
@@ -41,7 +41,7 @@
                         </div>
                         <input
                             type="radio"
-                            :checked="$i18n.locale == 'de'"
+                            :checked="$data.language == 'de'"
                             name="radio"
                             value="de"
                             v-on:change="languageSwitch"
@@ -54,7 +54,7 @@
                         </div>
                         <input
                             type="radio"
-                            :checked="$i18n.locale == 'en'"
+                            :checked="$data.language == 'en'"
                             name="radio"
                             value="en"
                             v-on:change="languageSwitch"
@@ -70,24 +70,21 @@
 <script>
 import Window from '@/components/Window.vue';
 import Labels from '@/components/Labels.vue';
+import Style from '@/mixins/style';
 
 export default {
   components: { Window, Labels },
+  mixins: [Style],
   data() {
     return {
-      theme: '',
     };
-  },
-  mounted() {
-    this.theme = document.documentElement.getAttribute('data-theme');
   },
   methods: {
     languageSwitch(elem) {
-      this.$i18n.locale = elem?.target?.value || '';
-      document.documentElement.setAttribute('lang', elem?.target?.value || '');
+      this.$_setLanguage(elem?.target?.value);
     },
     themeSwitch(elem) {
-      document.documentElement.setAttribute('data-theme', elem?.target?.value);
+      this.$_setTheme(elem?.target?.value);
     },
   },
 };

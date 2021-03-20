@@ -210,6 +210,14 @@ export default {
 @media (max-width: 540px) {
   .projectView {
     padding: 0;
+
+    &-header {
+      margin-bottom: 10px;
+    }
+
+    .innerWrapper{
+      left: 11px;
+    }
   }
 }
 </style>

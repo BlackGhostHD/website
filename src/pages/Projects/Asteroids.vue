@@ -4,7 +4,7 @@
             name="Asteroids"
             description="Multiplayer clone of the 1979 Game: Asteroids for Atari"
             assets="asteroids"
-            supportedLanguages="['en']"
+            :supportedLanguages="['en']"
           >
             <template v-slot:header>
               <router-link :to="'/games/asteroids'" class="button-launch">Start</router-link>

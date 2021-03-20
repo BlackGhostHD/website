@@ -33,6 +33,12 @@ export default {
   height: 93%
 }
 
+@media (max-width: 540px) {
+  .pageWrapper {
+    height: 100%;
+  }
+}
+
 .branding {
   position: absolute;
   bottom: 0;

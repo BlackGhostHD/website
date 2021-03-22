@@ -2,7 +2,7 @@
     <window name="Terminal" class="terminalWrapper" @click="this.focusOnClick">
             <div v-for="(element, index) in this.temp" :key="index" v-html="element" class="nasdasd"></div>
             <div class="terminalInput">
-                <span class="terminalSym"> > </span>
+                <span class="terminalSym">{{prog}} > </span>
                 <input
                     type="text"
                     id="terminal"
@@ -14,6 +14,7 @@
                     @keyup.enter="handleInput"
                     @keydown.up="back"
                     @keydown.down="front"
+                    @keydown.ctrl.67="exitProg"
                 >
             </div>
     </window>
@@ -27,6 +28,7 @@ export default {
   name: 'terminal',
   data() {
     return {
+      prog: '',
       index: 0,
       inputs: [],
       temp: [],
@@ -80,6 +82,9 @@ export default {
         default: this.apiCall(input);
       }
     },
+    exitProg() {
+      this.prog = '';
+    },
     reset() {
       this.inputs = [];
       localStorage.removeItem('terminal');
@@ -94,7 +99,7 @@ export default {
       this.$axios
         .get('/terminal', {
           params: {
-            input,
+            input: this.prog ? `${this.prog} ${input}` : input,
           },
         })
         .then((res) => {
@@ -103,6 +108,7 @@ export default {
             this.temp.push(res.data);
           } else {
             this.temp.push(data.message);
+            this.prog = data.contObj?.prog || '';
           }
         })
         .catch((error) => {

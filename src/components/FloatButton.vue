@@ -23,11 +23,12 @@ export default {
 <style lang="scss" scoped>
 .fab {
     position: absolute;
-    bottom: 35px;
-    right: 35px;
+    bottom: 28px;
+    right: 28px;
     width: 50px;
     height: 50px;
     background-color: var(--color-accent);
+    opacity: 0.6;
     border-radius: 50%;
     filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.1));
     z-index: 10;
@@ -44,6 +45,7 @@ export default {
 
     &:hover {
         background-color: var(--color-accent-dark);
+        opacity: 1;
         filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.6));
     }
 

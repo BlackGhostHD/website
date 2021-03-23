@@ -42,11 +42,17 @@ const routes = [
     path: '/games/asteroids',
     name: 'Asteroids',
     component: AsteroidsGame,
+    meta: {
+      title: '- 🕹️ Asteroids',
+    },
   },
   {
     path: '/projects/asteroids',
     name: 'Asteroids',
     component: AsteroidsProject,
+    meta: {
+      title: '- 🧪 Asteroids',
+    },
   },
   { path: '/games' },
 ];

@@ -17,7 +17,6 @@
               </div>
               <img :src="require('../assets/profil.jpg')" class="aboutHeader-profil">
             </div>
-
           </div>
         </window>
 </template>

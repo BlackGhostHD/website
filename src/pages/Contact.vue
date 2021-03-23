@@ -36,7 +36,7 @@
                             class="icon icon-instagram"
                         ></a>
                     </div>
-                    <a class="email" href="mailto:csommer44@gmail.com">
+                    <a class="email" href="mailto:mail@sommerchristian.de">
                         <img :src="require('../assets/icons/icon_mail.svg')" >
                     </a>
                 </div>

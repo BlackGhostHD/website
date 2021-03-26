@@ -8,6 +8,8 @@
     "pages.aboutMe.header.intro" : "Hallo, Welt! 👋🏻 Ich bin",
     "pages.aboutMe.header.msg" : "Ich entwerfe und programmiere schöne Software <br> Ich <span class='red'>❤</span> Clean Design",
     "pages.aboutMe.button.callToAction" : "mehr von mir",
+    "pages.aboutMe.workExperience.headline" : "Berufliche Erfahrung", 
+    "pages.aboutMe.education.headline" : "Bildungsweg", 
     "component.callout.languageNotSupported" : "💡 Dieser Beitrag ist leider nicht in der von dir gewählten Sprache verfügbar.",
     "portal.name.aboutMe" : "Über mich",
     "portal.name.contactMe" : "Kontaktiere mich",

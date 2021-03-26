@@ -17,15 +17,72 @@
               </div>
               <img :src="require('../assets/profil.jpg')" class="aboutHeader-profil">
             </div>
+            <br>
+            <!-- <h2>About Me</h2> -->
+            <br>
+            <h2>{{ $t('pages.aboutMe.workExperience.headline') }}</h2>
+            <about-card
+              v-for="entry in getWorkExperience"
+              :key="entry.position"
+              :position="entry.position"
+              :company="entry.company"
+              :date="entry.date"
+              :place="entry.place"
+              :img="entry.img"
+              :text="entry.text"
+            />
+
+            <br>
+            <h2>{{ $t('pages.aboutMe.education.headline') }}</h2>
+            <about-card
+              v-for="entry in getEducation"
+              :key="entry.position"
+              :position="entry.position"
+              :company="entry.company"
+              :date="entry.date"
+              :place="entry.place"
+              :img="entry.img"
+              :text="entry.text"
+            />
+
+            <div class="spacing"></div>
+
+            <div class="quoteWrapper">
+              <div class="quote">
+                You have to try the impossible to achieve the possible
+                <div class="author">
+                  Hermann Hesse
+                </div>
+              </div>
+            </div>
           </div>
         </window>
 </template>
 
 <script>
-import Window from '../components/Window.vue';
+import Window from '@/components/Window.vue';
+import AboutCard from '@/components/AboutCard.vue';
+import data from '@/static/data';
+import Style from '@/mixins/style';
 
 export default {
-  components: { Window },
+  name: 'aboutPage',
+  components: { Window, AboutCard },
+  mixins: [Style],
+  data() {
+    return {
+      education: data.aboutMe?.education,
+      workExperience: data.aboutMe?.workExperience,
+    };
+  },
+  computed: {
+    getEducation() {
+      return this.education[this.$data.language];
+    },
+    getWorkExperience() {
+      return this.workExperience[this.$data.language];
+    },
+  },
 };
 </script>
 
@@ -133,5 +190,43 @@ export default {
   .aboutWrapper {
     padding: 0 25px;
   }
+}
+
+.quoteWrapper{
+  margin: 25px 0;
+  position: relative;
+
+  .quote{
+    position: relative;
+    width: fit-content;
+    margin: auto;
+    text-align: center;
+
+      .author {
+        position: absolute;
+        right: 0;
+        color: var(--color-text-muted);
+
+        &::before {
+          content: '-';
+          color: var(--color-window-separator);
+        }
+      }
+
+      &::before {
+        content: '»';
+        color: var(--color-window-separator);
+      }
+
+      &::after {
+        content: '«';
+        color: var(--color-window-separator);
+      }
+  }
+}
+
+.spacing {
+    width: 100%;
+    height: 20px;
 }
 </style>

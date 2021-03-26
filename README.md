@@ -45,6 +45,6 @@ Feel free to suggest improvements or ideas.
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-<!-- Copyright & License -->
-### Copyright and License
-Copyright 2020-2021. Code released under the [AGPL-3.0 License](https://github.com/BlackGhostHD/website/blob/main/LICENSE).
+<!-- Copyright -->
+### Copyright
+Copyright 2020-2021. All rights reserved.

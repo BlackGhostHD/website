@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueDraggableResizable from 'vue-draggable-resizable';
 import setup from '@/helpers/axios';
+import '@/helpers/firebase';
 import eventBus from '@/plugins/eventBus';
 import App from './App.vue';
 import './registerServiceWorker';

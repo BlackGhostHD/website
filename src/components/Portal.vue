@@ -1,5 +1,5 @@
 <template>
-    <router-link :to="to" class="portal">
+    <router-link :to="to" class="portal" v-show="show">
         <img :src="require('../assets/icons/'+icon)" class="icon">
         <div class="text">
             {{text}}
@@ -8,8 +8,11 @@
 </template>
 
 <script>
+import style from '@/mixins/style';
+
 export default {
   name: 'portal',
+  mixins: [style],
   props: {
     icon: {
       type: String,
@@ -22,6 +25,16 @@ export default {
     to: {
       type: String,
       require: true,
+    },
+    mode: {
+      type: String,
+      default: () => '',
+      validator: (value) => ['', 'devMode'].includes(value),
+    },
+  },
+  computed: {
+    show() {
+      return !(this.mode === 'devMode' && this.$data.devMode !== 'on');
     },
   },
 };

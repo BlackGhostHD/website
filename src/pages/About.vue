@@ -45,16 +45,17 @@
               :text="entry.text"
             />
 
-            <div class="spacing"></div>
+            <!-- <div class="spacing"></div> -->
 
-            <div class="quoteWrapper">
+            <!-- <div class="quoteWrapper">
               <div class="quote">
                 You have to try the impossible to achieve the possible
                 <div class="author">
                   Hermann Hesse
                 </div>
               </div>
-            </div>
+            </div> -->
+
           </div>
         </window>
 </template>

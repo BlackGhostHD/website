@@ -2,7 +2,7 @@
         <window :name="$t('portal.name.settings')" :width="400" :height="280">
             <div class="contentWrapper">
             <div class="desgin-container">
-                <h3 class="header">{{ $t('pages.settings.design') }}: <labels text="BETA" /></h3>
+                <h3 class="header">{{ $t('pages.settings.design') }}: <labels text="BETA" class="label" /></h3>
                 <form>
                     <label class="container">
                         <div class="container-name">
@@ -63,6 +63,40 @@
                     </label>
                 </form>
             </div>
+            <div class="devMode-container" v-if="$data.devMode != 'hidden'">
+                <h3 class="header">{{ $t("pages.settings.devMode") }}:</h3>
+                <form>
+                    <label class="container">
+                        <div class="container-name">
+                            On
+                        </div>
+                        <input
+                            type="radio"
+                            :checked="$data.devMode == 'on'"
+                            name="radio"
+                            value='on'
+                            v-on:change="devModeSwitch"
+                        >
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                        <div class="container-name">
+                            Off
+                        </div>
+                        <input
+                            type="radio"
+                            :checked="$data.devMode == 'off'"
+                            name="radio"
+                            value='off'
+                            v-on:change="devModeSwitch"
+                        >
+                        <span class="checkmark"></span>
+                    </label>
+                </form>
+            </div>
+            <!-- <div class="downloadApp">
+                <button @click="pwa" v-if="deferredPrompt != null">Download App</button>
+            </div> -->
             </div>
         </window>
 </template>
@@ -77,7 +111,14 @@ export default {
   mixins: [Style],
   data() {
     return {
+      deferredPrompt: true,
     };
+  },
+  beforeMount() {
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      this.deferredPrompt = e;
+    });
   },
   methods: {
     languageSwitch(elem) {
@@ -86,6 +127,12 @@ export default {
     themeSwitch(elem) {
       this.$_setTheme(elem?.target?.value);
     },
+    devModeSwitch(elem) {
+      this.$_setDevMode(elem?.target?.value);
+    },
+    // pwa() {
+    //   this.deferredPrompt.prompt();
+    // },
   },
 };
 </script>
@@ -94,8 +141,14 @@ export default {
 .contentWrapper {
     padding: 0 10px;
 }
-
+.label {
+    top: -2px;
+    right: 8px;
+}
 .language-container {
+    margin-top: 20px;
+}
+.devMode-container {
     margin-top: 20px;
 }
 .header{
@@ -169,7 +222,22 @@ form {
         }
     }
 }
-        .container input:checked ~ .checkmark:after {
-            display: block;
-        }
+
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.downloadApp {
+    position: absolute;
+    padding: 2px 5px;
+    text-align: center;
+    width: fit-content;
+    left: 50%;
+    transform: translateX(-60%);
+    transition: all 0.3s;
+
+    &:hover {
+        color: var(--color-accent);
+    }
+}
 </style>

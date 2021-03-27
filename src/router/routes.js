@@ -6,6 +6,7 @@ import Setting from '@/pages/Setting.vue';
 import Projects from '@/pages/Projects.vue';
 import AsteroidsGame from '@/pages/Games/Asteroids.vue';
 import AsteroidsProject from '@/pages/Projects/Asteroids.vue';
+import Camera from '@/pages/Camera.vue';
 
 const routes = [
   {
@@ -53,6 +54,11 @@ const routes = [
     meta: {
       title: '- 🧪 Asteroids',
     },
+  },
+  {
+    path: '/exp/camera',
+    name: 'Camera',
+    component: Camera,
   },
   { path: '/games' },
 ];

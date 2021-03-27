@@ -18,7 +18,7 @@ export default {
 
 <style lang="scss" scoped>
 .label {
-  position: absolute;
+  position: relative;
   width: fit-content;
   margin: 0 5px;
   padding: 5px 7px;

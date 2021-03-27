@@ -6,6 +6,7 @@
           :text="$t(portal.text)"
           :icon="portal.icon"
           :to="portal.to"
+          :mode="portal.mode"
       />
     </div>
 </template>
@@ -34,6 +35,12 @@ export default {
           text: 'portal.name.projects',
           icon: 'icon_exp.svg',
           to: '/projects',
+        },
+        {
+          text: 'portal.name.camera',
+          icon: 'icon_cam.svg',
+          to: '/exp/camera',
+          mode: 'devMode',
         },
         {
           text: 'portal.name.terminal',

@@ -5,6 +5,7 @@
     "pages.settings.design" : "Design",
     "pages.settings.design.dark" : "Dark",
     "pages.settings.design.light" : "Light",
+    "pages.settings.devMode" : "Developer Mode",
     "pages.aboutMe.header.intro" : "Hello, world! 👋🏻 I'm",
     "pages.aboutMe.header.msg" : "I design and code beautiful Software <br> In <span class='red'>❤</span> with clean design",
     "pages.aboutMe.button.callToAction" : "View my Work",
@@ -15,5 +16,6 @@
     "portal.name.contactMe" : "Contact Me",
     "portal.name.projects" : "Work & Projects",
     "portal.name.terminal" : "Terminal",
-    "portal.name.settings" : "Settings"
+    "portal.name.settings" : "Settings",
+    "portal.name.camera" : "Camera"
 }

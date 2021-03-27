@@ -11,14 +11,17 @@ export default {
     return {
       theme: 'dark',
       language: 'en',
+      devMode: 'hidden',
     };
   },
   mounted() {
     try {
       const language = localStorage.getItem('language');
       const theme = localStorage.getItem('theme');
+      const devMode = localStorage.getItem('devMode');
       this.$_setLanguage(language);
       this.$_setTheme(theme);
+      this.$_setDevMode(devMode);
       /* eslint-disable-next-line */
     } catch (ignored) { }
   },
@@ -35,6 +38,11 @@ export default {
       document.documentElement.setAttribute('data-theme', them);
       saveToLocalStorage('theme', them);
       this.theme = them;
+    },
+    $_setDevMode(devMode) {
+      const mode = devMode || 'hidden';
+      saveToLocalStorage('devMode', mode);
+      this.devMode = mode;
     },
   },
 };

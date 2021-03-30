@@ -2,9 +2,10 @@
   <div class="pageWrapper" ref="pageWrapper">
     <topbar v-if="!visible" />
     <portalFrame />
-    <img :src="require('../assets/branding.png')" class="branding">
+    <!-- <img :src="require('../assets/branding.png')" class="branding"> -->
     <slot />
     <float-button :visible="visible" :to="'/desktop'" />
+    <clippy :visible="!visible" />
   </div>
 </template>
 
@@ -12,9 +13,12 @@
 import Topbar from '@/components/Topbar.vue';
 import PortalFrame from '@/components/PortalFrame.vue';
 import FloatButton from '@/components/FloatButton.vue';
+import Clippy from '@/components/Clippy.vue';
 
 export default {
-  components: { Topbar, PortalFrame, FloatButton },
+  components: {
+    Topbar, PortalFrame, FloatButton, Clippy,
+  },
   data() {
     return {
       visible: false,
@@ -30,7 +34,8 @@ export default {
 
 <style lang="scss" scoped>
 .pageWrapper {
-  height: 93%
+  height: 93%;
+  overflow: hidden;
 }
 
 @media (max-width: 540px) {

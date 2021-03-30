@@ -4,7 +4,6 @@
           <router-link :to="'desktop'">
             <img
                 :src="require('../assets/logo.png')"
-                height="40px"
             />
           </router-link>
         </div>
@@ -48,7 +47,7 @@ export default {
   display: flex;
   flex-direction: row;
   background-color: rgba(0, 0, 0, 0.3);
-  height: 50px;
+  height: 35px;
 
     -webkit-user-select: none; /* Safari */
     -moz-user-select: none; /* Firefox */
@@ -59,6 +58,11 @@ export default {
   .logo {
     align-self: center;
     padding-left: 10px;
+
+    img {
+      width: 35px;
+      margin-top: 4px;
+    }
   }
 
   .time {

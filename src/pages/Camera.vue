@@ -35,6 +35,7 @@ export default {
     }
   },
   beforeDestroy() {
+    if (this.stream == null) return;
     this.stream.getTracks().forEach((track) => {
       if (track.readyState === 'live') {
         track.stop();

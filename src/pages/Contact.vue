@@ -113,7 +113,6 @@ export default {
         border-radius: 50%;
         border: 6px solid var(--color-window-background);
         background-color: var(--color-success);
-        transition: 0.4s;
     }
 
     img{
@@ -121,7 +120,6 @@ export default {
         height: inherit;
         border-radius: 50%;
         border: 1px solid transparent;
-        transition: 0.4s;
     }
 }
 
@@ -250,13 +248,12 @@ export default {
     position: absolute;
     bottom: 39px;
     width: 35px;
-    // background-color: var(--color-accent);
-
-    &:hover {
-        // background-color: var(--color-accent-dark);
-    }
 
     img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
         width: 30px;
         filter: invert(1);
     }

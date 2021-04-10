@@ -1,6 +1,6 @@
 <template>
         <window :name="$t('portal.name.contactMe')" :width="300" :height="450">
-            <div class="contactWrapper">
+            <div :class="['contactWrapper', scan ? 'scan' : '']">
                 <div class="profil">
                     <div class="status"></div>
                     <img :src="require('../assets/profil.jpg')" >
@@ -9,32 +9,25 @@
                     Christian <br>
                     <span class="name">Sommer</span>
                 </div>
+                <div class="qr"></div>
+                <button class="email back" @click="scan = false">
+                    <img :src="require('../assets/icons/icon_arrow.svg')" >
+                </button>
                 <div class="foo">
                     <div class="socialMedia">
                         <a
-                            href="https://github.com/BlackGhostHD"
+                            v-for="sm in socialMedia"
+                            :key="sm.icon"
+                            :href="sm.link"
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="icon icon-github"
+                            :class="['icon', `icon-${sm.icon}`]"
                         ></a>
-                        <a
-                            href="https://www.linkedin.com/in/christian-sommer-596585177/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="icon icon-linkedin"
-                        ></a>
-                        <a
-                            href="https://discordapp.com/users/191154617084542976"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="icon icon-discord"
-                        ></a>
-                        <a
-                            href="https://www.instagram.com/sommer.pics/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="icon icon-instagram"
-                        ></a>
+                        <button
+                            href="#"
+                            class="icon icon-scan"
+                            @click="scan = true"
+                        ></button>
                     </div>
                     <a class="email" href="mailto:mail@sommerchristian.de">
                         <img :src="require('../assets/icons/icon_mail.svg')" >
@@ -53,6 +46,29 @@ import Window from '../components/Window.vue';
 export default {
   name: 'contactPage',
   components: { Window },
+  data() {
+    return {
+      socialMedia: [
+        {
+          icon: 'github',
+          link: 'https://github.com/BlackGhostHD',
+        },
+        {
+          icon: 'linkedin',
+          link: 'https://www.linkedin.com/in/christian-sommer-596585177/',
+        },
+        {
+          icon: 'discord',
+          link: 'https://discordapp.com/users/191154617084542976',
+        },
+        {
+          icon: 'instagram',
+          link: 'https://www.instagram.com/sommer.pics/',
+        },
+      ],
+      scan: false,
+    };
+  },
   methods: {
     copyEmail() {
       const tempInput = document.createElement('input');
@@ -81,6 +97,12 @@ export default {
     height: 100px;
     width: 100px;
     margin: 20px 0 40px 0;
+    transition: 0.4s;
+
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
 
     .status{
         position: absolute;
@@ -91,13 +113,15 @@ export default {
         border-radius: 50%;
         border: 6px solid var(--color-window-background);
         background-color: var(--color-success);
+        transition: 0.4s;
     }
 
     img{
-        width: 100px;
-        height: 100px;
+        width: inherit;
+        height: inherit;
         border-radius: 50%;
         border: 1px solid transparent;
+        transition: 0.4s;
     }
 }
 
@@ -122,8 +146,9 @@ export default {
         width: 20px;
         height: 20px;
         margin: 10px;
+        background-size: cover;
         filter: opacity(0.7);
-        transition: 0.4s;
+        transition: all 0.4s;
 
         &:hover {
             filter: opacity(1);
@@ -144,15 +169,9 @@ export default {
         &-discord {
          background-image: url('../assets/icons/icon_discord.svg');
         }
-    }
-}
 
-[data-theme="light"] {
-    .icon {
-        filter: invert(1) opacity(0.4);
-
-        &:hover {
-            filter: invert(1) opacity(1);
+        &-scan {
+         background-image: url('../assets/icons/icon_qr.svg');
         }
     }
 }
@@ -166,6 +185,11 @@ export default {
     margin: 0 auto;
     justify-content: center;
     transition: 0.4s;
+
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
 
     &:hover {
        background-color: var(--color-success-dark);
@@ -188,7 +212,7 @@ export default {
     font-size: 13px;
     color: var(--color-text-muted);
     cursor: pointer;
-    transition: all 0.2s;
+    transition: 0.2s;
 
     &:hover {
         color: var(--color-accent);
@@ -202,5 +226,94 @@ export default {
     justify-content: center;
     flex-flow: column;
     width: 100%;
+}
+
+.qr {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-33%);
+    width: 180px;
+    height: 180px;
+    background-image: url('../assets/icons/icon_qrCode.svg');
+    background-size: cover;
+    opacity: 0;
+    transition: 0.4s;
+
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+.back {
+    visibility: hidden;
+    position: absolute;
+    bottom: 39px;
+    width: 35px;
+    // background-color: var(--color-accent);
+
+    &:hover {
+        // background-color: var(--color-accent-dark);
+    }
+
+    img {
+        width: 30px;
+        filter: invert(1);
+    }
+}
+
+[data-theme="light"] {
+    .icon {
+        filter: invert(1) opacity(0.4);
+
+        &:hover {
+            filter: invert(1) opacity(1);
+        }
+    }
+
+    .qr {
+        filter: invert(1);
+    }
+}
+
+.scan {
+    display: flex;
+    flex-flow: row;
+
+    .profil {
+        width: 70px;
+        height: 70px;
+        margin: 20px 15px;
+
+        .status {
+            width: 20px;
+            height: 20px;
+            border: 5px solid var(--color-window-background);
+        }
+    }
+
+    .profil-name {
+        width: 120px;
+        padding-top: 4px;
+        margin: auto;
+        font-size: 22px;
+        text-align: left;
+
+        .name {
+            font-size: 18px;
+        }
+    }
+
+    .foo {
+        display: none;
+    }
+
+    .back {
+        visibility: visible;
+    }
+
+    .qr {
+        opacity: 1;
+    }
 }
 </style>

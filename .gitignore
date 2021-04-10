@@ -2,6 +2,7 @@
 node_modules
 /dist
 
+.htaccess
 
 # local env files
 .env.*.local

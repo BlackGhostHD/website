@@ -39,6 +39,9 @@
                     <a class="email" href="mailto:mail@sommerchristian.de">
                         <img :src="require('../assets/icons/icon_mail.svg')" >
                     </a>
+                    <span class="email-address" @click="copyEmail">
+                        {{ $t('pages.contact.copyEmailAddress') }}
+                    </span>
                 </div>
             </div>
         </window>
@@ -48,7 +51,21 @@
 import Window from '../components/Window.vue';
 
 export default {
+  name: 'contactPage',
   components: { Window },
+  methods: {
+    copyEmail() {
+      const tempInput = document.createElement('input');
+      tempInput.value = 'mail@sommerchristian.de';
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      const successful = document.execCommand('copy');
+      if (successful) {
+        this.$eventBus.$emit('clippyMsg', 'Email Address has been copyed to your clipboard.');
+      }
+      document.body.removeChild(tempInput);
+    },
+  },
 };
 </script>
 
@@ -98,7 +115,7 @@ export default {
 .socialMedia {
     display: flex;
     align-self: center;
-    margin: 20px 0;
+    margin: 15px 0;
 
     .icon {
         display: inline-block;
@@ -159,6 +176,22 @@ export default {
         justify-content: center;
         padding: 3px;
         width: 45px;
+    }
+}
+
+.email-address {
+    position: relative;
+    width: fit-content;
+    margin: auto;
+    margin-top: 3px;
+    margin-bottom: -28px;
+    font-size: 13px;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+        color: var(--color-accent);
     }
 }
 

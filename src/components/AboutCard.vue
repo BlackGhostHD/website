@@ -94,8 +94,8 @@ $sidebar-width : 2px;
             position: relative;
             width: $sidebar-width;
             height: 100%;
-            left: 3.5px;
-            bottom: -13px; // -4px;
+            left: 3.2px;
+            bottom: -15px; // -4px;
             background-color: var(--color-window-separator);
         }
 
@@ -106,7 +106,7 @@ $sidebar-width : 2px;
             width: $sidebar-width;
             height: 16px; // 12px;
             top: -8px; // -17px;
-            left: 3.5px;
+            left: 3.2px;
             background-color: var(--color-window-separator);
         }
 

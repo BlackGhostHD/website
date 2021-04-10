@@ -1,7 +1,7 @@
 <template>
     <div class="callout" v-if="show">
         {{text}}
-        <button class="callout-close" @click="show = false"> x </button>
+        <button class="callout-close" @click="show = false" v-if="collapsible"> x </button>
     </div>
 </template>
 
@@ -11,6 +11,10 @@ export default {
   props: {
     text: {
       type: String,
+      require: true,
+    },
+    collapsible: {
+      type: Boolean,
       require: true,
     },
   },

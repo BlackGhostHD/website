@@ -1,4 +1,5 @@
 {
+    "clippy.message.default" : "Hallo, brauchen Sie Hilfe?",
     "pages.settings.language" : "Sprache",
     "pages.settings.language.english" : "Englisch",
     "pages.settings.language.german" : "Deutsch",
@@ -10,6 +11,7 @@
     "pages.aboutMe.button.callToAction" : "mehr von mir",
     "pages.aboutMe.workExperience.headline" : "Berufliche Erfahrung", 
     "pages.aboutMe.education.headline" : "Bildungsweg", 
+    "pages.contact.copyEmailAddress" : "E-Mail-Adresse kopieren",
     "component.callout.languageNotSupported" : "💡 Dieser Beitrag ist leider nicht in der von dir gewählten Sprache verfügbar.",
     "portal.name.aboutMe" : "Über mich",
     "portal.name.contactMe" : "Kontaktiere mich",

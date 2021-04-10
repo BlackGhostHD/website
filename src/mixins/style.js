@@ -16,8 +16,8 @@ export default {
   },
   mounted() {
     try {
-      const language = localStorage.getItem('language');
-      const theme = localStorage.getItem('theme');
+      const language = localStorage.getItem('language') || document.documentElement.getAttribute('lang');
+      const theme = localStorage.getItem('theme') || document.documentElement.getAttribute('data-theme');
       const devMode = localStorage.getItem('devMode');
       this.$_setLanguage(language);
       this.$_setTheme(theme);

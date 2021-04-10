@@ -1,9 +1,9 @@
 <template>
     <div class="wrapperKarlKlammer" v-show="visible">
         <div class="dialog" v-show="active">
-            Hello there.
+            {{ message }}
         </div>
-        <div :class="['karlKlammer', active ? 'active' : '']" @click="active = !active">
+        <div :class="['karlKlammer', active ? 'active' : '']" @click="toggle">
             <img :src="require('../assets/clippy.png')">
             <div class="eye eye-left"></div>
             <div class="eye eye-right"></div>
@@ -17,12 +17,20 @@ export default {
   data() {
     return {
       active: false,
+      text: '',
     };
   },
   props: {
     visible: {
       type: Boolean,
       default: true,
+    },
+  },
+  computed: {
+    message() {
+      if (this.text !== '') return this.text;
+
+      return 'Hello there. Do you need help?';
     },
   },
   mounted() {
@@ -35,6 +43,18 @@ export default {
       left.style.transform = `translateY(${y}px) translateX(${x}px)`;
       right.style.transform = `translateY(${y}px) translateX(${x}px)`;
     });
+  },
+  methods: {
+    toggle() {
+      this.active = !this.active;
+      this.text = '';
+    },
+  },
+  eventBus: {
+    clippyMsg(message) {
+      this.text = message;
+      this.active = true;
+    },
   },
 };
 </script>
@@ -68,9 +88,10 @@ export default {
 
     .karlKlammer {
         position: relative;
-        height: 55px;
+        height: 53px;
         overflow: hidden;
         transition: all 0.3s;
+        cursor: pointer;
 
         &:hover {
             height: 75px;

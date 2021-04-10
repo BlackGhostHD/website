@@ -13,6 +13,7 @@
     "pages.aboutMe.workExperience.headline" : "Work Experience", 
     "pages.aboutMe.education.headline" : "Education", 
     "pages.contact.copyEmailAddress" : "copy email address",
+    "pages.contact.emailAddressCopyed" : "Email Address has been copyed to your clipboard",
     "component.callout.languageNotSupported" : "💡 Sorry, this post is not available in your selected language.",
     "portal.name.aboutMe" : "About Me",
     "portal.name.contactMe" : "Contact Me",

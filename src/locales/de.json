@@ -12,6 +12,7 @@
     "pages.aboutMe.workExperience.headline" : "Berufliche Erfahrung", 
     "pages.aboutMe.education.headline" : "Bildungsweg", 
     "pages.contact.copyEmailAddress" : "E-Mail-Adresse kopieren",
+    "pages.contact.emailAddressCopyed" : "E-Mail-Adresse wurde in die Zwischenablage kopiert",
     "component.callout.languageNotSupported" : "💡 Dieser Beitrag ist leider nicht in der von dir gewählten Sprache verfügbar.",
     "portal.name.aboutMe" : "Über mich",
     "portal.name.contactMe" : "Kontaktiere mich",

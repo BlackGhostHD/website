@@ -61,7 +61,7 @@ export default {
       tempInput.select();
       const successful = document.execCommand('copy');
       if (successful) {
-        this.$eventBus.$emit('clippyMsg', 'Email Address has been copyed to your clipboard.');
+        this.$eventBus.$emit('clippyMsg', this.$t('pages.contact.emailAddressCopyed'));
       }
       document.body.removeChild(tempInput);
     },

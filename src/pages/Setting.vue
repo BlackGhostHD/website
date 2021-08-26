@@ -156,6 +156,7 @@ export default {
 }
 form {
     display: flex;
+    flex-flow: wrap;
     padding-left: 20px;
 }
 .container {

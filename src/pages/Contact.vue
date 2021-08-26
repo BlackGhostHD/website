@@ -58,10 +58,6 @@ export default {
           link: 'https://www.linkedin.com/in/christian-sommer-596585177/',
         },
         {
-          icon: 'discord',
-          link: 'https://discordapp.com/users/191154617084542976',
-        },
-        {
           icon: 'instagram',
           link: 'https://www.instagram.com/sommer.pics/',
         },

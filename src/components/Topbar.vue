@@ -7,6 +7,9 @@
             />
           </router-link>
         </div>
+        <div class="message">
+
+        </div>
         <div class="time">
             {{data.time}}
         </div>
@@ -14,7 +17,9 @@
 </template>
 
 <script>
+
 export default {
+  name: 'topbar',
   data() {
     return {
       interval: null,
@@ -44,10 +49,11 @@ export default {
 
 <style lang="scss" scoped>
 .topbar {
-  display: flex;
-  flex-direction: row;
-  background-color: rgba(0, 0, 0, 0.3);
-  height: 35px;
+	display: flex;
+	flex-direction: row;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.3);
+	height: 35px;
 
     -webkit-user-select: none; /* Safari */
     -moz-user-select: none; /* Firefox */
@@ -71,6 +77,18 @@ export default {
     padding: 20px;
     font-size: 18px;
     align-self: center;
-    color: white;
+  }
+
+  .message {
+    position: absolute;
+    right: 50%;
+    top: 5px;
+    transform: translateX(50%);
+  }
+
+  .weather {
+    position: absolute;
+    right: 80px;
+    top: 5px;
   }
 </style>

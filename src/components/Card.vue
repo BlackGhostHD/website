@@ -2,6 +2,7 @@
     <router-link :to="link" class="card">
         <div class="card-header">
             <img :src="require('../assets/projects/'+img)">
+            <div class="category">{{ $t(`pages.projects.category.${this.category}`) }}</div>
         </div>
         <div class="card-body">
             <span class="card-title">{{ title }}</span>
@@ -19,6 +20,10 @@ export default {
       require: true,
     },
     description: {
+      type: String,
+      require: true,
+    },
+    category: {
       type: String,
       require: true,
     },
@@ -56,6 +61,17 @@ a {
       height: 180px;
       border-radius: 5px;
       transition: transform 1s, filter .5s ease-out;
+    }
+
+    .category {
+      color: #ffffff;
+      position: absolute;
+      top: 142px;
+      right: 8px;
+      font-size: 12px;
+      background: var(--color-accent);
+      border-radius: 5px;
+      padding: 4px 4px 2px 6px;
     }
   }
 

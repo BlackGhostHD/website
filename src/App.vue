@@ -20,14 +20,6 @@ export default {
       return this.$route.meta.layout || defaulLayout;
     },
   },
-  watch: {
-    $route: {
-      immediate: true,
-      handler(to) {
-        document.title = `Christian Sommer ${to.meta.title || ''}`;
-      },
-    },
-  },
 };
 </script>
 
@@ -79,6 +71,14 @@ html,body { height: 100%; margin: 0px; padding: 0px; overflow: hidden; backgroun
 }
 ::-webkit-scrollbar-corner {
   background: transparent;
+}
+
+a {
+  color: var(--color-accent);
+
+  &:hover {
+    color: var(--color-accent-dark);
+  }
 }
 
 </style>

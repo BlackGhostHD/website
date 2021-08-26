@@ -18,9 +18,16 @@
               <img :src="require('../assets/profil.jpg')" class="aboutHeader-profil">
             </div>
             <br>
-            <!-- <h2>About Me</h2> -->
-            <br>
-            <h2>{{ $t('pages.aboutMe.workExperience.headline') }}</h2>
+
+            <!-- AboutMe -------------------------------------------------- -->
+            <!-- <h2>About Me</h2>
+            <p>
+
+            </p> -->
+            <div class="spacing"></div>
+
+            <!-- WorkExperience ------------------------------------------- -->
+            <h2 v-show="getWorkExperience.length > 0">{{ $t('pages.aboutMe.workExperience.headline') }}</h2>
             <about-card
               v-for="entry in getWorkExperience"
               :key="entry.position"
@@ -31,9 +38,10 @@
               :img="entry.img"
               :text="entry.text"
             />
+            <div class="spacing"></div>
 
-            <br>
-            <h2>{{ $t('pages.aboutMe.education.headline') }}</h2>
+            <!-- Education ------------------------------------------------ -->
+            <h2 v-show="getEducation.length > 0">{{ $t('pages.aboutMe.education.headline') }}</h2>
             <about-card
               v-for="entry in getEducation"
               :key="entry.position"
@@ -44,9 +52,9 @@
               :img="entry.img"
               :text="entry.text"
             />
+            <div class="spacing"></div>
 
-            <!-- <div class="spacing"></div> -->
-
+            <!-- quote ------------------------------------------------ -->
             <!-- <div class="quoteWrapper">
               <div class="quote">
                 You have to try the impossible to achieve the possible
@@ -78,10 +86,10 @@ export default {
   },
   computed: {
     getEducation() {
-      return this.education[this.$data.language];
+      return this.education[this.$data.language] || [];
     },
     getWorkExperience() {
-      return this.workExperience[this.$data.language];
+      return this.workExperience[this.$data.language] || [];
     },
   },
 };
@@ -97,7 +105,7 @@ export default {
   display: flex;
   flex-flow: row;
   padding-bottom: 20px;
-  border-bottom: 1px solid var(--color-window-separator);
+  // border-bottom: 1px solid var(--color-window-separator);
 
   &-profil {
     width: 200px;
@@ -228,6 +236,7 @@ export default {
 
 .spacing {
     width: 100%;
-    height: 20px;
+    height: 25px;
 }
+
 </style>

@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+
 import Desktop from '@/pages/Desktop.vue';
 import Terminal from '@/pages/Terminal.vue';
 import About from '@/pages/About.vue';
@@ -45,6 +47,7 @@ const routes = [
     component: AsteroidsGame,
     meta: {
       title: '- 🕹️ Asteroids',
+      description: 'Play Asteroids Online! - Multiplayer clone of the 1979 Game: Asteroids for Atari by Christian Sommer',
     },
   },
   {

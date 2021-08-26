@@ -1,12 +1,14 @@
 <template>
         <window :name="$t('portal.name.projects')" :width=850 :height=600>
+          <navbar :btnList="groups" @onSelect="this.select" />
           <div class="projectWrapper">
             <div class="projectList">
               <card
-                v-for="project in projects"
+                v-for="project in projectList"
                 :key="project.title"
                 :title="project.title"
                 :description="project.description"
+                :category="project.category"
                 :img="project.img"
                 :link="project.link"
               />
@@ -18,23 +20,45 @@
 <script>
 import Card from '@/components/Card.vue';
 import Window from '@/components/Window.vue';
+import data from '@/static/project';
+import Navbar from '@/components/Navbar/NavBar.vue';
 
 export default {
   components: {
     Window,
     Card,
+    Navbar,
   },
   data() {
     return {
-      projects: [
+      groups: [
         {
-          title: 'Asteroids',
-          description: 'Multiplayer clone of the 1979 Game: Asteroids for Atari',
-          img: 'asteroids/card/img.png',
-          link: '/projects/asteroids',
+          name: 'pages.projects.category.work',
+          category: data.category.WORK,
+        },
+        {
+          name: 'pages.projects.category.projects',
+          category: data.category.PROJECTS,
+        },
+        {
+          name: 'pages.projects.category.university',
+          category: data.category.UNIVERSITY,
         },
       ],
+      selected: [],
+      projects: data.projects,
     };
+  },
+  computed: {
+    projectList() {
+      if (this.selected.length === 0) { return this.projects; }
+      return this.projects.filter((project) => this.selected.includes(project.category));
+    },
+  },
+  methods: {
+    select(selected) {
+      this.selected = selected;
+    },
   },
 };
 </script>

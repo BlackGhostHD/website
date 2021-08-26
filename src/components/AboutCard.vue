@@ -149,14 +149,6 @@ $sidebar-width : 2px;
             }
           }
         }
-
-        a {
-          color: var(--color-accent);
-
-          &:hover {
-            color: var(--color-accent-dark);
-          }
-        }
     }
 }
 

@@ -62,7 +62,11 @@ $sidebar-width : 2px;
     display: flex;
     flex-flow: row;
     margin-top: 10px;
-    margin-bottom: 17px;
+    margin-bottom: 19px;
+    margin-right: 20px;
+
+    text-align: justify;
+    text-align-last: none;
 
     .sidebar {
         position: relative;

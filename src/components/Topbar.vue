@@ -49,11 +49,11 @@ export default {
 
 <style lang="scss" scoped>
 .topbar {
-	display: flex;
-	flex-direction: row;
-	color: white;
-	background-color: rgba(0, 0, 0, 0.3);
-	height: 35px;
+  display: flex;
+  flex-direction: row;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 35px;
 
     -webkit-user-select: none; /* Safari */
     -moz-user-select: none; /* Firefox */

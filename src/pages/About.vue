@@ -1,5 +1,5 @@
 <template>
-        <window :name="$t('portal.name.aboutMe')" :width="750">
+        <window :name="$t('portal.name.aboutMe')">
           <div class="aboutWrapper">
             <div class="aboutHeader">
               <div class="side">
@@ -108,14 +108,17 @@ export default {
   // border-bottom: 1px solid var(--color-window-separator);
 
   &-profil {
-    width: 200px;
+    width: 208px;
     height: 208px;
     border-radius: 0 30%;
+    margin-left: auto;
+    margin-top: 15px;
   }
 
   .side {
     margin-top: 20px;
     margin-right: 58px;
+    margin-left: 30px;
     font-size: 18px;
     font-weight: lighter;
 

@@ -35,11 +35,11 @@ export default {
     },
     width: {
       type: Number,
-      default: 800,
+      default: 850,
     },
     height: {
       type: Number,
-      default: 500,
+      default: 600,
     },
     close: {
       type: String,

@@ -7,8 +7,7 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "build-storybook": "build-storybook",
-    "storybook": "start-storybook -p 6006"
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@mdi/font": "5.9.55",
@@ -31,10 +30,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.13.8",
-    "@storybook/addon-actions": "^6.1.21",
-    "@storybook/addon-essentials": "^6.4.19",
-    "@storybook/addon-links": "^6.1.21",
-    "@storybook/vue": "^6.4.19",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-pwa": "~4.5.0",

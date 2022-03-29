@@ -1,4 +1,5 @@
 const path = require('path');
+const { defineConfig } = require('@vue/cli-service');
 
 module.exports = {
   pluginOptions: {
@@ -43,3 +44,7 @@ module.exports = {
     'vuetify',
   ],
 };
+
+module.exports = defineConfig({
+  lintOnSave:false,
+});

@@ -20,6 +20,7 @@
     "roboto-fontface": "*",
     "sass-loader": "^10.1.1",
     "vue": "^2.6.11",
+    "vue-compare-image": "^0.2.0",
     "vue-draggable-resizable": "^2.3.0",
     "vue-i18n": "^8.23.0",
     "vue-router": "^3.2.0",

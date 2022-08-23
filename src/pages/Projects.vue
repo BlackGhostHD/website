@@ -6,6 +6,7 @@
               <card
                 v-for="project in projectList"
                 :key="project.title"
+                :date="project.date"
                 :title="project.title"
                 :description="project.description"
                 :category="project.category"
@@ -51,8 +52,12 @@ export default {
   },
   computed: {
     projectList() {
-      if (this.selected.length === 0) { return this.projects; }
-      return this.projects.filter((project) => this.selected.includes(project.category));
+      const list = this.projects.sort((a, b) => {
+        return b.date.localeCompare(a.date)
+      });
+
+      if (this.selected.length === 0) return list;
+      return list.filter((project) => this.selected.includes(project.category));
     },
   },
   methods: {

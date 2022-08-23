@@ -8,6 +8,7 @@ import Setting from '@/pages/Setting.vue';
 import Projects from '@/pages/Projects.vue';
 import AsteroidsGame from '@/pages/Games/Asteroids.vue';
 import AsteroidsProject from '@/pages/Projects/Asteroids.vue';
+import Wolfstein from '@/pages/Projects/Wolfstein.vue';
 import Camera from '@/pages/Camera.vue';
 
 const routes = [
@@ -52,10 +53,18 @@ const routes = [
   },
   {
     path: '/projects/asteroids',
-    name: 'Asteroids',
+    name: 'asteroids',
     component: AsteroidsProject,
     meta: {
       title: '- 🧪 Asteroids',
+    },
+  },
+  {
+    path: '/projects/wolfstein',
+    name: 'wolfstein',
+    component: Wolfstein,
+    meta: {
+      title: '- 🧪 Wolfstein Castle VR',
     },
   },
   {

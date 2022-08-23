@@ -3,8 +3,7 @@
     <div
       class="projectView-background"
       :style="{ 'background-image': `url(${backgroundImage})` }"
-    >
-    </div>
+    />
     <div class="projectView-header">
       <div :class="['projectView-back', top ? 'top' : '']">
       </div>
@@ -16,16 +15,18 @@
             {{ name }}
           </div>
         </div>
-      <div class="projectView-name">
-        {{ name }}
-      </div>
-      <div class="projectView-description">
-        {{ description }}
-      </div>
-      <slot name="header" />
     </div>
     <div class="projectView-body">
-      <language-not-supported :supportedLanguages="supportedLanguages" />
+      <div class="details">
+        <div class="projectView-name">
+          {{ name }}
+        </div>
+        <div class="projectView-description">
+          {{ description }}
+        </div>
+        <slot name="header" />
+        <language-not-supported :supportedLanguages="supportedLanguages" />
+      </div>
       <slot />
     </div>
   </div>
@@ -33,6 +34,7 @@
 
 <script>
 import LanguageNotSupported from './Callout/LanguageNotSupported.vue';
+import data from '../static/project';
 
 export default {
   name: 'projectView',
@@ -40,25 +42,21 @@ export default {
   data() {
     return {
       top: true,
+      name: '',
+      description: '',
+      assets: '',
+      supportedLanguages: [],
     };
   },
-  props: {
-    name: {
-      type: String,
-      require: true,
-    },
-    description: {
-      type: String,
-      require: true,
-    },
-    assets: {
-      type: String,
-      default: 'default',
-    },
-    supportedLanguages: {
-      type: Array,
-      require: false,
-    },
+  beforeMount() {
+    const id = this.$route.name;
+    const project = data.projects.find((el) => el.id === id);
+    if(project) {
+      this.name = project.title;
+      this.description = project.description;
+      this.assets = id;
+      this.supportedLanguages = project.languages;
+    }
   },
   mounted() {
     document.querySelector('#content').addEventListener('scroll', this.scroll);
@@ -71,7 +69,7 @@ export default {
   },
   methods: {
     scroll(elem) {
-      this.top = elem?.target.scrollTop <= 130;
+      this.top = elem?.target.scrollTop <= 350;
     },
   },
 };
@@ -80,39 +78,9 @@ export default {
 <style lang="scss" scoped>
 .projectView {
   max-width: 1000px;
-  padding: 10px 20px;
-  margin: auto;
 
   &-header {
-    height: 150px;
-    padding-left: 20px;
-    border-bottom: 1px solid var(--color-window-separator);
-
-    .button-launch {
-      position: relative;
-      color: #ffffff;
-      text-decoration: none;
-      padding: 5px 13px 5px 35px;
-      border: 1.5px solid var(--color-accent);
-      border-radius: 8px;
-      transition: all 0.8s;
-      z-index: 2;
-
-      &::before {
-        content:"";
-        background-image: url(~@/assets/icons/icon_paperPlane.svg);
-        background-size: 14px;
-        width: 20px;
-        height: 20px;
-        position: absolute;
-        top: 5px;
-        left: 10px;
-      }
-
-      &:hover {
-        background-color: var(--color-accent);
-      }
-    }
+    height: 360px;
   }
 
   &-back {
@@ -124,7 +92,7 @@ export default {
     background-color: #232325;
     filter: drop-shadow(0px 4px 1px rgba(0, 0, 0, 0.1));
     transition: all 0.8s;
-    z-index: -1;
+    z-index: 2;
 
     &.top {
       background-color: transparent;
@@ -166,10 +134,17 @@ export default {
     background-position: right;
     background-size: cover;
     width: 100%;
-    height: 175px;
+    height: 400px;
+    border-radius: 0 0 8px 8px;
     top: 25px;
     left: 0;
     z-index: -5;
+  }
+
+  .details {
+    min-height: 178px;
+    margin-bottom: 60px;
+    border-bottom: 1px solid var(--color-window-separator);
   }
 
   &-name {
@@ -177,23 +152,21 @@ export default {
     padding-top: 20px;
     color: #ffffff;
     font-size: 30px;
-    z-index: 2;
   }
 
   &-description {
     position: relative;
-    color: var(--color-text-muted);
+    color: #e7e7e7;
     letter-spacing: 0.02rem;
     margin-bottom: 20px;
-    z-index: 2;
   }
 
   &-body {
     position: relative;
-    padding: 20px 20px;
+    width: 849px;
+    left: -20px;
+    padding: 10px 50px;
     background-color: var(--color-window-background);
-    border-radius: 10px;
-    z-index: -2;
 
     p {
       margin-bottom: 30px;

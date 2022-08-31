@@ -1,7 +1,7 @@
 <template>
           <callout
             :text="$t('component.callout.languageNotSupported')"
-            :collapsible=false
+            :collapsible=true
             v-if="!languageSupported"
           />
 </template>

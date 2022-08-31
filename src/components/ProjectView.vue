@@ -18,14 +18,19 @@
     </div>
     <div class="projectView-body">
       <div class="details">
+        <div class="projectView-date">
+          {{ dateString }} • {{ $t(`pages.projects.category.${this.category}`) }}
+        </div>
         <div class="projectView-name">
           {{ name }}
         </div>
         <div class="projectView-description">
           {{ description }}
         </div>
-        <slot name="header" />
-        <language-not-supported :supportedLanguages="supportedLanguages" />
+        <div class="extra">
+          <slot name="header" class="slot" />
+          <language-not-supported :supportedLanguages="supportedLanguages" />
+        </div>
       </div>
       <slot />
     </div>
@@ -46,6 +51,8 @@ export default {
       description: '',
       assets: '',
       supportedLanguages: [],
+      date: '',
+      category: '',
     };
   },
   beforeMount() {
@@ -56,6 +63,8 @@ export default {
       this.description = project.description;
       this.assets = id;
       this.supportedLanguages = project.languages;
+      this.date = project.date;
+      this.category = project.category;
     }
   },
   mounted() {
@@ -66,6 +75,11 @@ export default {
       /* eslint-disable-next-line */
       return require(`../assets/projects/${this.assets}/images/background.png`);
     },
+    dateString() {
+      if (!this.date) return '';
+      if (isNaN(new Date(this.date))) return 'ONGOING';
+      return new Date(this.date).toLocaleDateString('de-DE', {month: 'short', year: 'numeric'});
+    }
   },
   methods: {
     scroll(elem) {
@@ -80,7 +94,7 @@ export default {
   max-width: 1000px;
 
   &-header {
-    height: 360px;
+    height: 400px;
   }
 
   &-back {
@@ -135,7 +149,6 @@ export default {
     background-size: cover;
     width: 100%;
     height: 400px;
-    border-radius: 0 0 8px 8px;
     top: 25px;
     left: 0;
     z-index: -5;
@@ -147,24 +160,27 @@ export default {
     border-bottom: 1px solid var(--color-window-separator);
   }
 
+  &-date {
+    padding-top: 15px;
+    color: var(--color-text-muted);
+  }
+
   &-name {
     position: relative;
-    padding-top: 20px;
-    color: #ffffff;
     font-size: 30px;
   }
 
   &-description {
     position: relative;
-    color: #e7e7e7;
+    height: 40px;
+    color: var(--color-text-muted);
     letter-spacing: 0.02rem;
-    margin-bottom: 20px;
+    padding-top: 8px;
   }
 
   &-body {
     position: relative;
-    width: 849px;
-    left: -20px;
+    width: 100%;
     padding: 10px 50px;
     background-color: var(--color-window-background);
 
@@ -178,18 +194,57 @@ export default {
       border-color: var(--color-window-separator);
     }
   }
+
+  .extra {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    width: 100%;
+  }
+
+  @media (max-width: 540px) {
+    &-description {
+      height: 60px;
+    }
+
+    .extra {
+      flex-flow: column;
+      align-items: unset;
+    }
+  }
+}
+
+video {
+  width: 100%;
+  margin: 5px 0;
+}
+
+h2 {
+  font-weight: unset;
+  margin: 10px 0;
+  
+  @media (min-width: 540px) {
+    &::before {
+      position: absolute;
+      margin-top: 7px;
+      left: 22px;
+      width: 10px;
+      height: 10px;
+      transform: rotate(45deg);
+      content: ' ';
+      border: 3px solid var(--color-accent);
+    }
+  }
+}
+
+p {
+  padding: 5px;
 }
 
 @media (max-width: 540px) {
   .projectView {
-    padding: 0;
-
-    &-header {
-      margin-bottom: 10px;
-    }
-
-    .innerWrapper{
-      left: 11px;
+    &-body {
+      padding: 10px 15px;
     }
   }
 }

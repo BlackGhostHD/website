@@ -65,9 +65,6 @@ $sidebar-width : 2px;
     margin-bottom: 19px;
     margin-right: 20px;
 
-    text-align: justify;
-    text-align-last: none;
-
     .sidebar {
         position: relative;
         margin-right: 15px;
@@ -123,10 +120,15 @@ $sidebar-width : 2px;
         margin-left: 8px;
         line-height: 19px;
 
+        .main {
+          text-align: justify;
+          text-align-last: none;
+        }
+
         .headerWrapper{
           position: relative;
           display: flex;
-          flex-flow: row;
+          flex-flow: col;
           margin-bottom: 15px;
 
           .header-logo {
@@ -151,6 +153,17 @@ $sidebar-width : 2px;
               color: var(--color-text-muted);
               font-size: 15px;
             }
+          }
+        }
+
+        @media (max-width: 540px) {
+          .main {
+            text-align: start;
+            text-align-last: none;
+          }
+
+          .headerWrapper{
+            flex-flow: column;
           }
         }
     }

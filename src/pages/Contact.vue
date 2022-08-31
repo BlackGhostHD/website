@@ -86,6 +86,7 @@ export default {
     display: flex;
     flex-flow: wrap;
     justify-content: center;
+    padding: 20px;
 }
 
 .profil {

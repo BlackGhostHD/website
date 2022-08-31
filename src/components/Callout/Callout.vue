@@ -29,6 +29,7 @@ export default {
 <style lang="scss" scoped>
     .callout {
         position: relative;
+        width: 100%;
         padding: 10px 30px 10px 10px;
         margin: 10px 0;
         font-size: 14px;
@@ -38,6 +39,7 @@ export default {
 
         &-close {
             position: absolute;
+            cursor: pointer;
             right: 12px;
             top: 10px;
             font-size: 18px;

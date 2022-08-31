@@ -6,6 +6,7 @@
               <card
                 v-for="project in projectList"
                 :key="project.title"
+                :id="project.id"
                 :date="project.date"
                 :title="project.title"
                 :description="project.description"

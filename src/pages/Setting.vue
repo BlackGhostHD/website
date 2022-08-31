@@ -1,102 +1,102 @@
 <template>
         <window :name="$t('portal.name.settings')" :width="400" :height="280">
             <div class="contentWrapper">
-            <div class="desgin-container">
-                <h3 class="header">{{ $t('pages.settings.design') }}: <labels text="BETA" class="label" /></h3>
-                <form>
-                    <label class="container">
-                        <div class="container-name">
-                            {{ $t('pages.settings.design.dark') }}
-                        </div>
-                        <input
-                            type="radio"
-                            :checked="$data.theme === 'dark'"
-                            name="radio"
-                            value="dark"
-                            v-on:change="themeSwitch"
-                        >
-                        <span class="checkmark checkmark-dark"></span>
-                    </label>
-                    <label class="container">
-                        <div class="container-name">
-                            {{ $t('pages.settings.design.light') }}
-                        </div>
-                        <input
-                            type="radio"
-                            :checked="$data.theme === 'light'"
-                            name="radio"
-                            value="light"
-                            v-on:change="themeSwitch"
-                        >
-                        <span class="checkmark checkmark-light"></span>
-                    </label>
-                </form>
-            </div>
-            <div class="language-container">
-                <h3 class="header">{{ $t("pages.settings.language") }}:</h3>
-                <form>
-                    <label class="container">
-                        <div class="container-name">
-                            {{ $t("pages.settings.language.german") }}
-                        </div>
-                        <input
-                            type="radio"
-                            :checked="$data.language == 'de'"
-                            name="radio"
-                            value="de"
-                            v-on:change="languageSwitch"
-                        >
-                        <span class="checkmark checkmark-de"></span>
-                    </label>
-                    <label class="container">
-                        <div class="container-name">
-                            {{ $t("pages.settings.language.english") }}
-                        </div>
-                        <input
-                            type="radio"
-                            :checked="$data.language == 'en'"
-                            name="radio"
-                            value="en"
-                            v-on:change="languageSwitch"
-                        >
-                        <span class="checkmark checkmark-en"></span>
-                    </label>
-                </form>
-            </div>
-            <div class="devMode-container" v-if="$data.devMode != 'hidden'">
-                <h3 class="header">{{ $t("pages.settings.devMode") }}:</h3>
-                <form>
-                    <label class="container">
-                        <div class="container-name">
-                            On
-                        </div>
-                        <input
-                            type="radio"
-                            :checked="$data.devMode == 'on'"
-                            name="radio"
-                            value='on'
-                            v-on:change="devModeSwitch"
-                        >
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        <div class="container-name">
-                            Off
-                        </div>
-                        <input
-                            type="radio"
-                            :checked="$data.devMode == 'off'"
-                            name="radio"
-                            value='off'
-                            v-on:change="devModeSwitch"
-                        >
-                        <span class="checkmark"></span>
-                    </label>
-                </form>
-            </div>
-            <!-- <div class="downloadApp">
-                <button @click="pwa" v-if="deferredPrompt != null">Download App</button>
-            </div> -->
+                <div class="desgin-container">
+                    <h3 class="header">{{ $t('pages.settings.design') }}: <labels text="BETA" class="label" /></h3>
+                    <form>
+                        <label class="container">
+                            <div class="container-name">
+                                {{ $t('pages.settings.design.dark') }}
+                            </div>
+                            <input
+                                type="radio"
+                                :checked="$data.theme === 'dark'"
+                                name="radio"
+                                value="dark"
+                                v-on:change="themeSwitch"
+                            >
+                            <span class="checkmark checkmark-dark"></span>
+                        </label>
+                        <label class="container">
+                            <div class="container-name">
+                                {{ $t('pages.settings.design.light') }}
+                            </div>
+                            <input
+                                type="radio"
+                                :checked="$data.theme === 'light'"
+                                name="radio"
+                                value="light"
+                                v-on:change="themeSwitch"
+                            >
+                            <span class="checkmark checkmark-light"></span>
+                        </label>
+                    </form>
+                </div>
+                <div class="language-container">
+                    <h3 class="header">{{ $t("pages.settings.language") }}:</h3>
+                    <form>
+                        <label class="container">
+                            <div class="container-name">
+                                {{ $t("pages.settings.language.german") }}
+                            </div>
+                            <input
+                                type="radio"
+                                :checked="$data.language == 'de'"
+                                name="radio"
+                                value="de"
+                                v-on:change="languageSwitch"
+                            >
+                            <span class="checkmark checkmark-de"></span>
+                        </label>
+                        <label class="container">
+                            <div class="container-name">
+                                {{ $t("pages.settings.language.english") }}
+                            </div>
+                            <input
+                                type="radio"
+                                :checked="$data.language == 'en'"
+                                name="radio"
+                                value="en"
+                                v-on:change="languageSwitch"
+                            >
+                            <span class="checkmark checkmark-en"></span>
+                        </label>
+                    </form>
+                </div>
+                <div class="devMode-container" v-if="$data.devMode != 'hidden'">
+                    <h3 class="header">{{ $t("pages.settings.devMode") }}:</h3>
+                    <form>
+                        <label class="container">
+                            <div class="container-name">
+                                On
+                            </div>
+                            <input
+                                type="radio"
+                                :checked="$data.devMode == 'on'"
+                                name="radio"
+                                value='on'
+                                v-on:change="devModeSwitch"
+                            >
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container">
+                            <div class="container-name">
+                                Off
+                            </div>
+                            <input
+                                type="radio"
+                                :checked="$data.devMode == 'off'"
+                                name="radio"
+                                value='off'
+                                v-on:change="devModeSwitch"
+                            >
+                            <span class="checkmark"></span>
+                        </label>
+                    </form>
+                </div>
+                <!-- <div class="downloadApp">
+                    <button @click="pwa" v-if="deferredPrompt != null">Download App</button>
+                </div> -->
             </div>
         </window>
 </template>
@@ -139,7 +139,7 @@ export default {
 
 <style lang="scss" scoped>
 .contentWrapper {
-    padding: 0 10px;
+    padding: 20px 20px;
 }
 .label {
     top: -2px;

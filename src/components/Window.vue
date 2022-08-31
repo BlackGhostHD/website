@@ -8,7 +8,9 @@
     >
         <window-header :name=name :close="close" />
         <div class="content" @click='onClickButton' id="content">
+          <div class="wrapper">
             <slot/>
+          </div>
         </div>
     </vue-draggable-resizable>
 </template>
@@ -84,7 +86,6 @@ export default {
     z-index: 10;
 
     .content {
-        padding: 15px;
         height: 93.7%;
         overflow: auto;
     }

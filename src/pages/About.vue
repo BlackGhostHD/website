@@ -98,7 +98,7 @@ export default {
 <style lang="scss">
 
 .aboutWrapper {
-  padding: 0 50px;
+  padding: 20px 60px;
 }
 
 .aboutHeader {

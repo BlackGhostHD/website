@@ -1,5 +1,5 @@
 <template>
-    <window name="Game: Asteroids" :width=992 :height=683 close="projects/asteroids">
+    <window name="Game: Asteroids" :width=960 :height=670 close="projects/asteroids">
         <iframe src="https://sommerchristian.de/game/asteroids/" width="960" height="620" class="game" scrolling="no" />
     </window>
 </template>
@@ -17,6 +17,7 @@ export default {
 
 <style lang="scss">
 .game {
+  padding: 10px;
   color: var(--color-text);
   border:none;
 }

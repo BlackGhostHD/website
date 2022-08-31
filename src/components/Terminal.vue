@@ -1,5 +1,6 @@
 <template>
-    <window name="Terminal" class="terminalWrapper" @click="this.focusOnClick">
+    <window name="Terminal" @click="this.focusOnClick">
+      <div class="terminalWrapper">
             <div v-for="(element, index) in this.temp" :key="index" v-html="element" class="nasdasd"></div>
             <div class="terminalInput">
                 <span class="terminalSym">{{prog}} > </span>
@@ -17,6 +18,7 @@
                     @keydown.ctrl.67="exitProg"
                 >
             </div>
+      </div>
     </window>
 </template>
 
@@ -142,6 +144,7 @@ export default {
 
 .terminalWrapper {
     height: 100%;
+    padding: 5px 20px;
 }
 
 .command {

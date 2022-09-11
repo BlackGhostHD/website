@@ -4,26 +4,26 @@
             <h2>Project Process</h2>
             <p>
               <div class="process">
-              <VueCompareImage 
+              <VueCompareImage
                   sliderPositionPercentage = "0.05"
-                  :rightImage="require('../../assets/projects/wolfstein/images/grundriss_gebaeude.png')" 
-                  :leftImage="require('../../assets/projects/wolfstein/images/grundriss_turm.png')" 
+                  :rightImage="require('../../assets/projects/wolfstein/images/grundriss_gebaeude.png')"
+                  :leftImage="require('../../assets/projects/wolfstein/images/grundriss_turm.png')"
               />
               </div>
             </p>
 
             <h2>Reality vs. Reconstruction</h2>
             <p>
-              <VueCompareImage 
-                  :leftImage="require('../../assets/projects/wolfstein/images/wolfsteinVR_reality.jpg')" 
-                  :rightImage="require('../../assets/projects/wolfstein/images/wolfsteinVR_vr.jpg')" 
+              <VueCompareImage
+                  :leftImage="require('../../assets/projects/wolfstein/images/wolfsteinVR_reality.jpg')"
+                  :rightImage="require('../../assets/projects/wolfstein/images/wolfsteinVR_vr.jpg')"
               />
             </p>
 
             <h2>Final Result</h2>
             <p>
             Here you can see the final version in a topdown view:
-            <video autoplay loop>
+            <video loop autoplay>
                 <source src="../../assets/projects/wolfstein/images/WolfsteinFlug.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>

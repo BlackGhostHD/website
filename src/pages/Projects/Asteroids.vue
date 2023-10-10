@@ -31,11 +31,6 @@
               so I decided to make it a mutliplayer game.
             </p>
 
-            <h4>First approach</h4>
-            <p>
-
-            </p>
-
           </project-view>
         </window>
 </template>
